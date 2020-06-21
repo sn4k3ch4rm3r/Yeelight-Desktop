@@ -1,0 +1,21 @@
+#colorpicker-container {
+	position: relative;
+	height: 302px;
+	width: 502px;
+}
+
+#colorpicker {
+	border: 1px solid black;
+	position: absolute;
+	z-index: -1;
+}
+
+#colorpicker-marker {
+	position: absolute;
+	z-index: 1;
+	border: 2px solid #fffffffa;
+	border-radius: 100%;
+	width: 15px;
+	height: 15px;
+	transform: translate(-50%, -50%);
+}
