@@ -1,7 +1,15 @@
+html {
+	background: #2d2d2e;
+	color: white;
+	font-family: Roboto, Arial, Helvetica, sans-serif;
+	font-size: 1.2vw;
+}
+
 #colorpicker-container {
 	position: relative;
 	height: 302px;
 	width: 502px;
+	margin-top: 5%;
 }
 
 #colorpicker {
@@ -18,4 +26,54 @@
 	width: 15px;
 	height: 15px;
 	transform: translate(-50%, -50%);
+}
+
+#container {
+	width: 500px;
+	margin: auto;
+}
+
+#color-sliders {
+	width: 100%;
+}
+
+button {
+	background: #5a5a5c;
+	color: white;
+	font-family: Roboto, Arial, Helvetica, sans-serif;
+	font-size: 1.2vw;
+	border: none;
+	padding: 10px;
+	width: 30%;
+	left:50%;
+	position: relative;
+	transform: translate(-50%,0);
+}
+
+#label {
+	margin-bottom: 5px;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    .slider {
+      overflow: hidden;
+      width: 100%;
+      -webkit-appearance: none;
+	  background-color: #999;
+	  outline: none;
+    }
+    
+    .slider::-webkit-slider-runnable-track {
+      height: 20px;
+      -webkit-appearance: none;
+    }
+    
+    .slider::-webkit-slider-thumb {
+      width: 20px;
+      -webkit-appearance: none;
+      height: 20px;
+      cursor: pointer;
+      background: #434343;
+      box-shadow: -500px 0 0 500px #fff;
+    }
 }

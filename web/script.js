@@ -5,16 +5,8 @@ var colorpicker = document.getElementById("colorpicker");
 var colorpicker_container = document.getElementById("colorpicker-container");
 var colorpicker_marker = document.getElementById("colorpicker-marker");
 
-// eel.discover()(
-// 	function(ret) {
-// 		console.log(ret);
-// 	}
-// );
-
-
 eel.getState()(
 	function(ret) {
-		// console.log(ret);
 		brightness.value = ret.bright;
 		power_status = ret.power == 'on'?'off':'on';;
 		power.innerHTML = power_status;
@@ -22,7 +14,6 @@ eel.getState()(
 		setMarker(parseInt(rgb_hex.substring(0,2),16),
 				  parseInt(rgb_hex.substring(2,4),16), 
 				  parseInt(rgb_hex.substring(4,6),16))
-		// console.log(parseInt(rgb_hex.substring(2,4),16));
 	}
 );
 
