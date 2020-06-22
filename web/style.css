@@ -5,6 +5,120 @@ html {
 	font-size: 1.2vw;
 }
 
+#header {
+	width: 100%;
+	height: 50px;
+	background: #1d1d1d;
+	position: fixed;
+	z-index: 999;
+	top:0;
+	left:0;
+}
+
+#header h1 {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin: 0;
+	transform: translate(-50%, -50%);
+}
+
+#add {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 50px;
+	height: 50px;
+	font-size: 30px;
+	font-weight: 100;
+	color: #aaa;
+	transition-duration: 300ms;
+	cursor: pointer;
+}
+
+#add p {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	margin: 0;
+}
+
+#add:hover {
+	background-color: #434343;
+}
+
+#device-list {
+	position: relative;
+	top: 60px;
+}
+
+#no-devices {
+	position: absolute;
+	left:50%;
+	transform: translate(-50%, 0);
+	font-size: 20px;
+}
+
+.device {
+	width: 60%;
+	margin: auto;
+	position: relative;
+	padding: 10px;
+	cursor: pointer;
+	transition-duration: 300ms;
+}
+
+.device h2 {
+	margin-top: 0;
+	font-size: 20px;
+}
+
+.device p{
+	margin-bottom: 0;
+	font-size: 15px;
+}
+
+.dashboard-power {
+	position: absolute;
+	top: 50%;
+	right: 10px;
+	transform: translate(0, -50%);
+	width: 45px;
+	height: 45px;
+	cursor: pointer;
+	background-color: #434343;
+	border-radius: 100%;
+	border:0;
+	color: #f1f1f3;
+	transition-duration: 300ms;
+}
+
+.dashboard-power:hover {
+	background: #5a5a5c;
+}
+
+.on {
+	background-color: #0dcc46;
+}
+.on:hover {
+	background-color: #0da73b;
+}
+
+
+.dashboard-power span {
+	position: absolute;
+	top:50%;
+	left:50%;
+	transform: translate(-50%, -50%);
+}
+
+.device hr {
+	border:0;
+	border-top: 1px solid #262627;
+	margin-top: 10px;
+}
+
 #colorpicker-container {
 	position: relative;
 	height: 302px;
@@ -37,7 +151,7 @@ html {
 	width: 100%;
 }
 
-button {
+#control-power {
 	background: #5a5a5c;
 	color: white;
 	font-family: Roboto, Arial, Helvetica, sans-serif;
