@@ -149,13 +149,14 @@ html {
 	margin: auto;
 	position: relative;
 	padding: 10px;
-	cursor: pointer;
 	transition-duration: 300ms;
 }
 
 .device h2 {
 	margin-top: 0;
 	font-size: 20px;
+	width: fit-content;
+	cursor: pointer;
 }
 
 .device p{
@@ -229,6 +230,7 @@ html {
 #container {
 	width: 500px;
 	margin: auto;
+	margin-top: 60px;
 }
 
 #color-sliders {
@@ -241,11 +243,17 @@ html {
 	font-family: Roboto, Arial, Helvetica, sans-serif;
 	font-size: 1.2vw;
 	border: none;
+	outline:none;
 	padding: 10px;
 	width: 30%;
 	left:50%;
 	position: relative;
 	transform: translate(-50%,0);
+	cursor: pointer;
+	transition-duration: 300ms;
+}
+#control-power:hover {
+	background-color: #6d6d6e;
 }
 
 #label {

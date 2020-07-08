@@ -7,8 +7,19 @@
 	<link rel="stylesheet" href="style.css">
 	<link rel="shortcut icon" href="icon.png" type="image/x-icon">
 	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
 </head>
 <body>
+	<div id="header">
+		<h1 id='control-header-title'>
+			Device
+		</h1>
+		<div id="back" onclick="location.href = 'dashboard.html'">
+			<span class="material-icons">
+				arrow_back
+			</span>
+		</div>
+	</div>
 	<div id="container">
 		<button id="control-power" onclick="toggle()">Turn <span id="power">on</span></button>
 		<div id="colorpicker-container">

@@ -4,18 +4,27 @@ var power_status = 'on'
 var colorpicker = document.getElementById("colorpicker");
 var colorpicker_container = document.getElementById("colorpicker-container");
 var colorpicker_marker = document.getElementById("colorpicker-marker");
+var control_header_title = document.getElementById("control-header-title");
 
-eel.getState()(
-	function(ret) {
-		brightness.value = ret.bright;
-		power_status = ret.power == 'on'?'off':'on';;
-		power.innerHTML = power_status;
-		var rgb_hex = parseInt(ret.rgb).toString(16).padStart(6,0);
-		setMarker(parseInt(rgb_hex.substring(0,2),16),
-				  parseInt(rgb_hex.substring(2,4),16), 
-				  parseInt(rgb_hex.substring(4,6),16))
-	}
-);
+eel.control_init(location.href.split('?')[1])(function(resp) {
+});
+
+function getState() {
+	eel.control_get_state()(
+		function(ret) {
+			console.log(ret);
+			control_header_title.innerHTML = ret.name;
+			brightness.value = ret.bright;
+			power_status = ret.power == 'on'?'off':'on';;
+			power.innerHTML = power_status;
+			var rgb_hex = parseInt(ret.rgb).toString(16).padStart(6,0);
+			setMarker(parseInt(rgb_hex.substring(0,2),16),
+					parseInt(rgb_hex.substring(2,4),16), 
+					parseInt(rgb_hex.substring(4,6),16))
+		}
+	);
+}
+getState();
 
 colorpicker_container.addEventListener('click', getCursorPosition, false);
 function getCursorPosition(event) {
@@ -29,7 +38,7 @@ function getCursorPosition(event) {
 	var data = ctx.getImageData(x,y,1,1).data;
 	if(data[0] == 0 || data[1] == 0 || data[2] == 0) return;
 	setMarker(data[0], data[1], data[2]);
-	eel.setColor(data[0], data[1], data[2]);
+	eel.control_set_rgb(data[0], data[1], data[2]);
 }
 
 var canvas = document.getElementById('colorpicker');
@@ -73,12 +82,11 @@ for (let i = 0; i <= h; i++) {
 }
 
 function toggle() {
-	eel.toggle()
-	power_status = power_status == 'on'?'off':'on';
-	power.innerHTML = power_status;
+	eel.control_toggle()
+	getState();
 }
 
 function setBrightness() {
 	let val = brightness.value;
-	eel.setBrightness(val)
+	eel.control_set_brightness(val)
 }

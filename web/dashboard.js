@@ -5,7 +5,7 @@ eel.get_lights()(function(lights) {
 	if (lights.length > 0) {
 		lights.forEach(light => {
 			var device = document.createElement('div');
-			device.innerHTML = `<h2 class="name">\
+			device.innerHTML = `<h2 class="name" onclick="location.href = 'control.html?${light.id}'">\
 									${light.name}\
 								</h2>\
 								<p "is-on">\

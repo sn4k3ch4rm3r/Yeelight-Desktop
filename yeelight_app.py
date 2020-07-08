@@ -26,6 +26,50 @@ cursor.execute('''CREATE TABLE IF NOT EXISTS lights (
 					name TEXT,
 					model TEXT
 				  );''')
+
+class Control:
+	def __init__(self, id):
+		cursor.execute('SELECT * FROM lights WHERE id = ?', [id])
+		self.id, self.ip, self.name, self.model = cursor.fetchone()
+		self.bulb = yeelight.Bulb(self.ip, duration=TRANSITION_DURATION)
+
+	def toggle(self):
+		self.bulb.toggle()
+
+	def set_brightness(self, val):
+		self.bulb.set_brightness(int(val))
+
+	def set_color(self, r,g,b):
+		if r == 0 or g == 0 or b == 0:
+			return
+		self.bulb.set_rgb(r,g,b)
+
+	def get_state(self): 
+		resp = self.bulb.get_properties()
+		return(resp)
+
+control_class = None
+@eel.expose
+def control_init(id):
+	global control_class
+	control_class = Control(id)
+
+@eel.expose
+def control_set_brightness(val):
+	control_class.set_brightness(val)
+
+@eel.expose
+def control_set_rgb(r,g,b):
+	control_class.set_color(r,g,b)
+
+@eel.expose
+def control_toggle():
+	control_class.toggle()
+
+@eel.expose
+def control_get_state():
+	return control_class.get_state()
+
 @eel.expose
 def toggle(ip):
 	bulb = yeelight.Bulb(ip, duration=TRANSITION_DURATION)
@@ -35,25 +79,6 @@ def toggle(ip):
 	except:
 		state = 'Offline'
 	return state
-
-# @eel.expose
-# def setBrightness(val):
-# 	bulb.set_brightness(int(val))
-
-# @eel.expose
-# def setColor(r,g,b):
-# 	if r == 0 or g == 0 or b == 0:
-# 		return
-# 	bulb.set_rgb(r,g,b)
-
-# @eel.expose
-# def getState(): 
-# 	resp = bulb.get_properties()
-# 	return(resp)
-
-# @eel.expose
-# def discover():
-# 	return yeelight.discover_bulbs()
 
 @eel.expose
 def add_device(name, ip):
@@ -106,4 +131,4 @@ def get_lights():
 	return lights
 
 eel.init('web')
-eel.start('dashboard.html', port=55443, width=200)
+eel.start('dashboard.html', port=55443, size=(950, 600))
