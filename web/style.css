@@ -20,6 +20,7 @@ html {
 	top: 50%;
 	left: 50%;
 	margin: 0;
+	font-size: 20px;
 	transform: translate(-50%, -50%);
 }
 
@@ -48,11 +49,93 @@ html {
 	background-color: #434343;
 }
 
+#back {
+	position: absolute;
+	top: 0;
+	right: left;
+	width: 50px;
+	height: 50px;
+	font-size: 30px;
+	font-weight: 100;
+	color: #aaa;
+	transition-duration: 300ms;
+	cursor: pointer;
+}
+
+#back span {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	margin: 0;
+}
+
+#back:hover {
+	background-color: #434343;
+}
+
 #device-list {
 	position: relative;
 	top: 60px;
 }
 
+#new-device {
+	position: relative;
+	top: 60px;
+	width: 60%;
+	margin: auto;
+}
+
+#new-device input {
+	width: 100%;
+	background-color: #434343;
+	border: none;
+	outline: none;
+	color: white;
+	font-size: 17px;
+	padding: 10px;
+	display: block;
+	box-sizing: border-box;
+}
+
+#new-device input:focus {
+	border-left: 3px solid #0dcc46;
+
+}
+
+#device-type {
+	border: none;
+	outline: none;
+	cursor: pointer;
+	width: 100%;
+	background-color: #434343;
+	color: white;
+	padding: 10px;
+	font-size: 17px;
+}
+
+#device-type:focus {
+	border-left: 3px solid #0dcc46;
+}
+
+#add-device {
+	position: relative;
+	left: 50%;
+	transform: translate(-50%,0);
+	width: 30%;
+	margin-top: 15px;
+	border: none;
+	background-color: #434343;
+	color: white;
+	font-size: 17px;
+	padding: 10px;
+	cursor: pointer;
+	transition-duration: 300ms;
+}
+
+#add-device:hover {
+	background-color: #5a5a5c;
+}
 #no-devices {
 	position: absolute;
 	left:50%;
@@ -166,6 +249,7 @@ html {
 
 #label {
 	margin-bottom: 5px;
+	font-size: 17px;
 }
 
 @media screen and (-webkit-min-device-pixel-ratio:0) {

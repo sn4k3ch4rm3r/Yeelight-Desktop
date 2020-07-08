@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Yeelight - Add device</title>
+	<link rel="shortcut icon" href="icon.png" type="image/x-icon">
+	<link rel="stylesheet" href="style.css">
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
+</head>
+<body>
+	<div id="header">
+		<h1>
+			Add Device
+		</h1>
+		<div id="back" onclick="location.href = 'dashboard.html'">
+			<span class="material-icons">
+				arrow_back
+			</span>
+		</div>
+	</div>
+	<div id="new-device">
+		<p id="label">Name</p>
+		<input type="text" id="name" placeholder="Bedroom Lightstrip">
+
+		<p id="label">IP-Address</p>
+		<input type="text" id="ip" placeholder="192.168.0.10">
+
+		<p id="label">Device Type</p>
+		<select id="device-type">
+			<option value="">Select Device</option>
+			<option value="lightstrip-plus">Yeelight Lightstrip Plus</option>
+		</select>
+
+		<button id="add-device">Add</button>
+	</div>
+</body>
+</html>
