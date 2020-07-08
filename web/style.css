@@ -125,6 +125,7 @@ html {
 	width: 30%;
 	margin-top: 15px;
 	border: none;
+	outline: none;
 	background-color: #434343;
 	color: white;
 	font-size: 17px;

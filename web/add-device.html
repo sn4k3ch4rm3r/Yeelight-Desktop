@@ -8,6 +8,8 @@
 	<link rel="stylesheet" href="style.css">
 	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
+	<script src="/eel.js"></script>
+	<script src="add-device.js"></script>
 </head>
 <body>
 	<div id="header">
@@ -27,13 +29,7 @@
 		<p id="label">IP-Address</p>
 		<input type="text" id="ip" placeholder="192.168.0.10">
 
-		<p id="label">Device Type</p>
-		<select id="device-type">
-			<option value="">Select Device</option>
-			<option value="lightstrip-plus">Yeelight Lightstrip Plus</option>
-		</select>
-
-		<button id="add-device">Add</button>
+		<button id="add-device" onclick="addDevice()">Add</button>
 	</div>
 </body>
 </html>
