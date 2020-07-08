@@ -11,7 +11,7 @@ eel.get_lights()(function(lights) {
 								<p "is-on">\
 									${light.state}\
 								</p>\
-								<div class="dashboard-power ${light.state}" onclick="toggle(${light.ip})">\
+								<div class="dashboard-power ${light.state}" onclick="toggle(${light.id}, '${light.ip}')">\
 									<span class="material-icons">\
 										power_settings_new\
 									</span>\
@@ -28,3 +28,13 @@ eel.get_lights()(function(lights) {
 								</div>'
 	}
 });
+
+function toggle(id, ip) {
+	eel.toggle(ip)(function(response) {
+		const light = document.getElementById(id);
+		const children = light.childNodes;
+		console.log(children[4].className);
+		children[2].replaceChild(document.createTextNode(response), children[2].childNodes[0]);
+		children[4].className = `dashboard-power ${response}`;
+	});
+}

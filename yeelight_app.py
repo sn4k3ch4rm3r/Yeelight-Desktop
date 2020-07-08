@@ -5,6 +5,8 @@ import sqlite3
 import platform
 import yeelight
 
+TRANSITION_DURATION = 500
+
 _platform = platform.system()
 if _platform == 'Windows':
 	path = os.environ['appdata']
@@ -24,9 +26,15 @@ cursor.execute('''CREATE TABLE IF NOT EXISTS lights (
 					name TEXT,
 					model TEXT
 				  );''')
-# @eel.expose
-# def toggle():
-# 	bulb.toggle()
+@eel.expose
+def toggle(ip):
+	bulb = yeelight.Bulb(ip, duration=TRANSITION_DURATION)
+	bulb.toggle()
+	try:
+		state = bulb.get_capabilities()['power']
+	except:
+		state = 'Offline'
+	return state
 
 # @eel.expose
 # def setBrightness(val):
